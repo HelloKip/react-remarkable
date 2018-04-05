@@ -21,10 +21,14 @@ class Remarkable extends React.Component {
   }
 
   render() {
-    var Container = this.props.container;
+    var {
+      container: Container,
+      children, options, source, // ⬅ remove Remarkable props
+      ...props // ⬅ only pass non-Remarkable props
+    } = this.props;
 
     return (
-      <Container>
+      <Container {...props}>
         {this.content()}
       </Container>
     );
